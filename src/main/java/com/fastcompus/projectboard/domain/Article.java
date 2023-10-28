@@ -32,9 +32,8 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
     @Index(columnList = "createdAt"),
     @Index(columnList = "createdBy")
 })
-@EntityListeners(AuditingEntityListener.class)
 @Entity
-public class Article {
+public class Article extends AuditingFields {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -62,22 +61,12 @@ public class Article {
     @ToString.Exclude //circular referencing 이슈
     private final Set<ArticleComment> articleComments = new LinkedHashSet<>();
 
+    //공통된 필드를 추출해서 따로 사용하는 2가지 방법이 있다.
+    // 1. @MappedSuperclass  2. @Embedded
+    // Embedded 는 공통된 필드들을 하나의 클래스로 묶어 그 클래스를 추가하는 방법
+    // MappedSuperClass를 단 클래스에 필드를 넣고 상속하는 방법
 
-    @CreatedDate
-    @Column(nullable = false)
-    private LocalDateTime createdAt; //생성일시
 
-    @CreatedBy
-    @Column(nullable = false, length = 100)
-    private String createdBy; // 생성자
-
-    @LastModifiedDate
-    @Column(nullable = false)
-    private LocalDateTime modifiedAt; //수정일시
-
-    @LastModifiedBy
-    @Column(nullable = false, length = 100)
-    private String modifiedBy; //수정자
 
     protected Article() {
     } //모든 JPA Entity는 기본생성자를 가지고 있어야함
