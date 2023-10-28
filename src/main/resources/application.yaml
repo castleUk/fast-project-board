@@ -33,6 +33,7 @@ spring:
   sql:
     init:
       mode: always
+
   data.rest:
   data:
     rest:
