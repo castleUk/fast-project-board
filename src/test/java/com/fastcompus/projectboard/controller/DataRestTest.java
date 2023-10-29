@@ -4,6 +4,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +16,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 // @WebMvcTest //컨트롤러 말고는 읽어오지 않는다
 
+@Disabled("Spring Data REST 통합테스트는 불필요하므로 제외시킴 ")
 @DisplayName("Data REST - API테스트")
 @Transactional
 @AutoConfigureMockMvc
