@@ -226,3 +226,5 @@ gradle-app.setting
 # End of https://www.toptal.com/developers/gitignore/api/java,gradle,intellij+all,windows,macos,visualstudiocode
 
 .idea/codeStyles/codeStyleConfig.xml
+
+gradle/wrapper/gradle-wrapper.properties
