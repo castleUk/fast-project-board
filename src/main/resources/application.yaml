@@ -43,3 +43,6 @@ spring:
     ansi:
       enabled: always
 
+  thymeleaf3:
+    decoupled-logic: true
+
